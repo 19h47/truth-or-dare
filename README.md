@@ -1,1 +1,1 @@
-# Send a wish
+# Truth or dare

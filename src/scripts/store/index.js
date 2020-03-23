@@ -1,7 +1,7 @@
 import Vuex from 'vuex';
 import Vue from 'vue';
 
-import wishes from '@/wishes';
+import tasks from '@/tasks';
 
 Vue.use(Vuex);
 
@@ -10,8 +10,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
 	state: {
 		index: 0,
-		value: wishes[0].value,
-		wish: wishes[0].content,
+		value: tasks[0].value,
+		task: tasks[0].content,
 	},
 	actions: {
 		updateAction(context) {
@@ -20,16 +20,16 @@ export default new Vuex.Store({
 	},
 	mutations: {
 		updateMutation(state) {
-			const random = Math.floor(Math.random() * wishes.length);
+			const random = Math.floor(Math.random() * tasks.length);
 
-			state.wish = wishes[random].content;
-			state.value = wishes[random].value;
+			state.task = tasks[random].content;
+			state.value = tasks[random].value;
 			state.index = random;
 		},
 	},
 	getters: {
 		index: state => state.index,
 		value: state => state.value,
-		wish: state => state.wish,
+		wish: state => state.task,
 	},
 });

@@ -5,11 +5,11 @@
 		mode="out-in"
 	>
 		<div
-			v-if="wish()"
+			v-if="task()"
 			class="h3"
 			style="font-weight: 500; line-height: 30px;"
-			v-html="wish()"
-			:key="wish()"
+			v-html="task()"
+			:key="task()"
 		></div>
 	</transition>
 </template>
@@ -21,9 +21,9 @@ import gsap from 'gsap';
 import SplitText from 'Vendors/SplitText';
 
 export default {
-	name: 'Wish',
+	name: 'Task',
 	methods: {
-		...mapState(['wish']),
+		...mapState(['task']),
 		enter(el, done) {
 			const splitText = this.split(el);
 

@@ -9,7 +9,6 @@ const path = require('path');
 
 // Plugins
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
@@ -43,19 +42,19 @@ module.exports = {
 			'vue$': 'vue/dist/vue.esm.js',
 
 			// js
-			js: resolve('src/js'),
-			Blocks: resolve('src/js/blocks'),
-			Common: resolve('src/js/common'),
-			Pages: resolve('src/js/pages'),
-			Transitions: resolve('src/js/transitions'),
-			Components: resolve('src/js/components'),
-			Utils: resolve('src/js/utils'),
-			Services: resolve('src/js/services'),
-			Factories: resolve('src/js/factories'),
-			Router: resolve('src/js/router'),
-			Api: resolve('src/js/api'),
-			Store: resolve('src/js/store'),
-			Vendors: resolve('src/js/vendors'),
+			scripts: resolve('src/scripts'),
+			Blocks: resolve('src/scripts/blocks'),
+			Common: resolve('src/scripts/common'),
+			Pages: resolve('src/scripts/pages'),
+			Transitions: resolve('src/scripts/transitions'),
+			Components: resolve('src/scripts/components'),
+			Utils: resolve('src/scripts/utils'),
+			Services: resolve('src/scripts/services'),
+			Factories: resolve('src/scripts/factories'),
+			Router: resolve('src/scripts/router'),
+			Api: resolve('src/scripts/api'),
+			Store: resolve('src/scripts/store'),
+			Vendors: resolve('src/scripts/vendors'),
 
 			// img
 			img: resolve('src/img'),
@@ -162,7 +161,7 @@ module.exports = {
 				loader: 'file-loader',
 				options: {
 					outputPath: 'img/',
-					name: '[ext]/[hash].[ext]',
+					name: '[ext]/[name].[ext]',
 					// publicPath: '../img/',
 				},
 			},
@@ -189,10 +188,6 @@ module.exports = {
 	},
 	plugins: [
 		new CleanWebpackPlugin(),
-		new CopyWebpackPlugin([{
-			from: resolve('src/favicons' ),
-			to: 'favicons'
-		}]),
 		new HtmlWebpackPlugin({
 			template: resolve('index.html' ),
 		}),

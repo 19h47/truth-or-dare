@@ -1,14 +1,14 @@
 <template>
 	<div id="app">
-		<header v-if="showWish">
+		<header v-if="showTask">
 			<value></value>
 		</header>
 		<div class="container" ref="canvas">
 			<transition name="fade" mode="out-in" appear>
-				<div v-if="!showWish" key="button">
+				<div v-if="!showTask" key="button">
 					<h1
 						style="line-height: 30px;"
-					>365 wishes<br>
+					>Truth or dare<br>
 						<span
 							style="font-size: 18px; font-weight: 300;"
 						>by <strong>ines a</strong> & <strong>19h47</strong></span>
@@ -16,17 +16,17 @@
 					<button
 						type="button"
 						class="button"
-						@click="showWish = !showWish; $store.dispatch('updateAction');"
-					>Send a wish</button>
+						@click="showTask = !showTask; $store.dispatch('updateAction');"
+					>Truth or dare</button>
 				</div>
-				<div v-if="showWish" key="wish">
-					<wish></wish>
+				<div v-if="showTask" key="wish">
+					<task/>
 				</div>
 			</transition>
 		</div>
 
 		<transition name="fade">
-			<footer v-if="showWish">
+			<footer v-if="showTask">
 
 				<div class="Footer__column Footer__column--left">
 
@@ -47,7 +47,7 @@
 				</div>
 
 				<div class="Footer__column Footer__column--right" style="color: white;">
-					<small>By <a href="http://inesa.fr" target="_blank"><strong>ines a</strong></a> & <a href="http://19h47.fr" target="_blank"><strong>19h47</strong></a></small>
+					<small>By <a href="http://inesa.fr" target="_blank"><strong>ines a</strong></a> & <a href="https://19h47.fr" target="_blank"><strong>19h47</strong></a></small>
 				</div>
 
 			</footer>
@@ -57,7 +57,7 @@
 
 <script>
 
-import wish from 'Components/Wish.vue';
+import task from 'Components/Task.vue';
 import value from 'Components/Value.vue';
 import url from 'Components/Url.vue';
 
@@ -65,10 +65,10 @@ import html2canvas from 'html2canvas';
 
 export default {
 	name: 'App',
-	components: { wish, value, url },
+	components: { task, value, url },
 	data() {
 		return {
-			showWish: false,
+			showTask: false,
 			canvas: null,
 		};
 	},

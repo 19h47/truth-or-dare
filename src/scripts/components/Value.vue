@@ -1,7 +1,7 @@
 <template>
 	<transition name="fade" mode="out-in" appear>
-		<img v-if="$store.getters['value']" :src="thumbUp"/>
-		<img v-else :src="thumbDown"/>
+		<img v-if="$store.getters['value']" :src="flexedBiceps"/>
+		<img v-else :src="indexPointingUp"/>
 	</transition>
 </template>
 
@@ -9,15 +9,15 @@
 
 import { mapState } from 'vuex';
 
-import thumbUp from '@/img/png/thumb-up.png';
-import thumbDown from '@/img/png/thumb-down.png';
+import flexedBiceps from '@/img/png/flexed-biceps.png';
+import indexPointingUp from '@/img/png/index-pointing-up.png';
 
 export default {
 	name: 'Value',
 	data() {
 		return {
-			thumbUp,
-			thumbDown,
+			flexedBiceps,
+			indexPointingUp,
 		};
 	},
 	computed: {
@@ -27,10 +27,10 @@ export default {
 		value(val = false) {
 			const link = document.querySelector("link[rel*='icon']");
 
-			link.href = 'favicons/thumb-down.png';
+			link.href = indexPointingUp;
 
 			if (val) {
-				link.href = 'favicons/thumb-up.png';
+				link.href = flexedBiceps;
 			}
 		},
 	},
