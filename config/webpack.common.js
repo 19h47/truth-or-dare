@@ -144,18 +144,6 @@ module.exports = {
 			}]
 		},
 		{
-			test: /\.(mp4|webm|ogg|mp3|wav|flac|aac|ogv)(\?.*)?$/,
-			use: [{
-				loader: 'url-loader',
-				options: {
-					limit: 100000,
-					name: '[name].[ext]',
-					publicPath: resolve('src/videos'),
-					outputPath: 'videos/',
-				}
-			}]
-		},
-		{
 			test: /\.(gif|png|jpe?g)$/i,
 			use: [{
 				loader: 'file-loader',
