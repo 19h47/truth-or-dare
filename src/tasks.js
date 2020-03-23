@@ -12,12 +12,12 @@ export default [
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'Est-ce que tu m’aimes ?',
+		content: 'Tu m’aimes ?',
 	},
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'Tu pense que nous aurions une chance de coucher si nous étions confinés ensemble ?',
+		content: 'Penses-tu que nous aurions une chance de coucher si nous étions confinés ensemble ?',
 	},
 	{
 		title: 'Vérité',
