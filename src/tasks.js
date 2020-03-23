@@ -288,7 +288,7 @@ export default [
 	{
 		title: 'Action',
 		value: 0,
-		content: 'Envoie « Je t’aime mais notre amuor est impossible » à la 18 ème personne de ton répertoire téléphonique',
+		content: 'Envoie « Je t’aime mais notre amour est impossible » à<br>la 18 ème personne de ton répertoire téléphonique',
 	},
 
 	{
