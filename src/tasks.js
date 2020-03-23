@@ -133,7 +133,7 @@ export default [
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'As-tu déj à  commis un délit ?	',
+		content: 'As-tu déjà commis un délit ?	',
 	},
 	{
 		title: 'Action',
@@ -147,10 +147,6 @@ export default [
 		content: 'Fais-moi, s’il te plaît, un top 5 de tes chansons favorites',
 	},
 
-	{
-		title: 'Action',
-		value: 1,
-		content: 'Fais-moi , s’il te plaît, un top 5 de tes chansons favorites pour faire l’amour',
 	},
 
 	{
@@ -186,13 +182,13 @@ export default [
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Trouve-moi 5 qualités et surtout, partage-les moi',
+		content: 'Trouve-moi 5 qualités',
 	},
 
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Demain, c’est journée sans culotte',
+		content: 'Demain, c’est sans culotte',
 	},
 
 	{
@@ -246,25 +242,25 @@ export default [
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Téléphone moi-a-a',
+		content: 'Téléphone moi',
 	},
 
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Raconte-moi ce que tu as envie de me faire',
+		content: 'Dis-moi ce que tu as envie de me faire',
 	},
 
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Touche-toi en  pensant à moi',
+		content: 'Touche-toi en pensant à moi',
 	},
 
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Fais un classement de des tes en partant de celui que tu aimes le moins pour arriver à celui que tu détestes le plus',
+		content: 'Réalise un classement de des tes en partant de celui que tu aimes le moins pour arriver à celui que tu détestes le plus',
 	},
 
 	{
@@ -300,7 +296,7 @@ export default [
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Raconte ta plus grosse honte en statut Instagram<br>(Et identifie Le Bitch Club)',
+		content: 'Évoque plus grosse honte en statut Instagram<br>(Et identifie Le Bitch Club)',
 	},
 
 	{
