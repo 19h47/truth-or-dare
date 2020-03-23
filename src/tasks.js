@@ -147,8 +147,6 @@ export default [
 		content: 'Fais-moi, s’il te plaît, un top 5 de tes chansons favorites',
 	},
 
-	},
-
 	{
 		title: 'Action',
 		value: 1,
@@ -238,73 +236,61 @@ export default [
 		value: 1,
 		content: 'Via un statut Facebook, annonce à tes contacts que tu m’aimes<br>(N’oublie pas de citer Le Bitch Club)',
 	},
-
 	{
 		title: 'Action',
 		value: 1,
 		content: 'Téléphone moi',
 	},
-
 	{
 		title: 'Action',
 		value: 1,
 		content: 'Dis-moi ce que tu as envie de me faire',
 	},
-
 	{
 		title: 'Action',
 		value: 1,
 		content: 'Touche-toi en pensant à moi',
 	},
-
 	{
 		title: 'Action',
 		value: 1,
 		content: 'Réalise un classement de des tes en partant de celui que tu aimes le moins pour arriver à celui que tu détestes le plus',
 	},
-
 	{
 		title: 'Action',
 		value: 1,
 		content: 'Enregistre-toi en train de me chanter une chanson de Balavoine',
 	},
-
 	{
 		title: 'Action',
 		value: 1,
 		content: 'Prends un selfie, envoie-le moi. Tu me manques',
 	},
-
 	{
 		title: 'Action',
 		value: 1,
 		content: 'Résiste, prouve que tu existes',
 	},
-
 	{
 		title: 'Action',
 		value: 1,
 		content: 'Envoie « Je t’aime mais notre amour est impossible » à<br>la 18 ème personne de ton répertoire téléphonique',
 	},
-
 	{
 		title: 'Action',
 		value: 1,
 		content: 'Annonce sur Facebook que tu es enceinte',
 	},
-
 	{
 		title: 'Action',
 		value: 1,
 		content: 'Évoque plus grosse honte en statut Instagram<br>(Et identifie Le Bitch Club)',
 	},
-
 	{
 		title: 'Action',
 		value: 1,
 		content: 'Envoie une bitchline à un ami',
 	},
-
 	{
 		title: 'Action',
 		value: 1,
