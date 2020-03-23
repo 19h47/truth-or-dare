@@ -11,6 +11,7 @@
 	"author": "Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)",
 	"license": "ISC",
 	"dependencies": {
+		"core-js": "^3.6.4",
 		"gsap": "3.2.5",
 		"html2canvas": "^1.0.0-rc.5",
 		"vue": "^2.6.10",
