@@ -150,7 +150,7 @@ export default [
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Fais-moi, s’il te plaît, un top 5 de tes chansons favorites pour me faire l’amour',
+		content: 'Embrasse-moi idiot (après cette épidémie)',
 	},
 
 	{
@@ -249,7 +249,7 @@ export default [
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Touche-toi en pensant à moi',
+		content: 'Pense à moi nu.e',
 	},
 	{
 		title: 'Action',
@@ -279,7 +279,7 @@ export default [
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Annonce sur Facebook que tu es enceinte',
+		content: 'Annonce sur Facebook que tu es enceinte ou que tu vas être papa',
 	},
 	{
 		title: 'Action',
@@ -290,6 +290,11 @@ export default [
 		title: 'Action',
 		value: 1,
 		content: 'Envoie une bitchline à un ami',
+	},
+	{
+		title: 'Action',
+		value: 1,
+		content: 'Embrasse ton ou tes coconfinés (sans prendre de risque pour ta santé)',
 	},
 	{
 		title: 'Action',
