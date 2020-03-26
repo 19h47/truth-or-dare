@@ -17,17 +17,17 @@ export default [
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'Penses-tu que nous aurions une chance de coucher si nous étions confinés ensemble ?',
+		content: 'Aurions-nous une chance de coucher ensemble si nous étions confinés tous les deux ?',
 	},
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'As-tu envie de m’arracher mon masque pour m’en rouler une ?',
+		content: 'As-tu envie de m’arracher mon masque afin de m’en rouler une ?',
 	},
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'Avec combien de personnes as-tu couché ?',
+		content: 'Avec combien de personnes as-tu couché (en tout) ?',
 	},
 	{
 		title: 'Vérité',
@@ -55,24 +55,24 @@ export default [
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'Est-ce que tu penses que sur un malentendu, ça peut passer ?',
+		content: 'Est-ce que sur un malentendu, ça peut passer ?',
 	},
 
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'Que feras-tu quand les mesures de confinement seront levées ?',
+		content: 'Quelle est la première choses que tu feras<br>lorsque les mesures de confinement seront levées ?',
 	},
 
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'Quel est, selon toi le plus bel homme de la Terre ?',
+		content: 'Quel est selon toi, le plus bel homme de la Terre ?',
 	},
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'Tu préfères faire l’amour avec ou sans musique ?',
+		content: 'Avec ou sans lumière ?',
 	},
 	{
 		title: 'Vérité',
@@ -82,17 +82,17 @@ export default [
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'As-tu plus quitté qu’été quitté.e ?',
+		content: 'As-tu plus quitté que tu n\'as été quitté.e ?',
 	},
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'Quelle est ta perversion ?',
+		content: 'Quelle est ta plus grande perversion ?',
 	},
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'Quel est le nom de la personne avec laquelle tu as fait ta première fois ?',
+		content: 'Quel est le prénom de la personne avec laquelle tu as fait ta première fois ?',
 	},
 
 	{
@@ -123,7 +123,7 @@ export default [
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'Quelle est la partie de ton corps qui est le plus souvent complimentée ?',
+		content: 'Quelle est la partie de ton corps dont tu es le ou la plus fier.ère ?',
 	},
 	{
 		title: 'Vérité',
@@ -156,7 +156,7 @@ export default [
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Va te  laver les mains, elles sont dégueulasses',
+		content: 'Va te laver les mains, elles sont dégueulasses',
 	},
 
 	{
@@ -180,7 +180,7 @@ export default [
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Trouve-moi 5 qualités',
+		content: 'Énnonce-moi 5 de mes qualités',
 	},
 
 	{
@@ -192,7 +192,7 @@ export default [
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Utilise un moyen technologique actuel pour envoyer « Je t’aime » à quelqu’un de ta famille (avec lequel tu ne couches pas)',
+		content: 'Utilise un moyen technologique actuel pour envoyer « Je t’aime »<br>à quelqu’un de ta famille (avec lequel tu ne couches pas)',
 	},
 
 	{
@@ -234,17 +234,17 @@ export default [
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Via un statut Facebook, annonce à tes contacts que tu m’aimes<br>(N’oublie pas de citer Le Bitch Club)',
+		content: 'Si tu crois un jour que tu m\'aimes, n\'attends pas un jour, pas une semaine',
 	},
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Téléphone moi',
+		content: 'Téléphone-moi',
 	},
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Dis-moi ce que tu as envie de me faire',
+		content: 'Raconte-moi ce que tu as envie de me faire',
 	},
 	{
 		title: 'Action',
@@ -254,7 +254,7 @@ export default [
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Réalise un classement de des tes en partant de celui que tu aimes le moins pour arriver à celui que tu détestes le plus',
+		content: 'Réalise un classement de des tes ex en partant de celui que<br>tu aimes le moins pour arriver à celui que tu détestes le plus',
 	},
 	{
 		title: 'Action',
@@ -284,7 +284,7 @@ export default [
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Évoque plus grosse honte en statut Instagram<br>(Et identifie Le Bitch Club)',
+		content: 'Évoque plus grosse honte en statut Instagram<br>(identifie Le Bitch Club)',
 	},
 	{
 		title: 'Action',
