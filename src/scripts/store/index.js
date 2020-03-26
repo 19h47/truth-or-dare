@@ -9,6 +9,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
+		version: '1.0.0',
 		index: 0,
 		value: tasks[0].value,
 		task: tasks[0].content,

@@ -1,12 +1,11 @@
 <template>
 	<transition name="fade" mode="out-in" appear>
-		<img v-if="$store.getters['value']" :src="flexedBiceps"/>
-		<img v-else :src="indexPointingUp"/>
+		<img v-if="$store.getters['value']" :src="flexedBiceps" />
+		<img v-else :src="indexPointingUp" />
 	</transition>
 </template>
 
 <script>
-
 import { mapState } from 'vuex';
 
 import flexedBiceps from '@/img/png/flexed-biceps.png';
@@ -35,18 +34,18 @@ export default {
 		},
 	},
 };
-
 </script>
 
 <style lang="scss" scoped>
-	img {
-		width: 30px;
-		height: 30px;
-	}
-	.fade-enter-active, .fade-leave-active {
-		transition: opacity 0.5s;
-	}
-	.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-		opacity: 0;
-	}
+img {
+	width: 30px;
+	height: 30px;
+}
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+	opacity: 0;
+}
 </style>

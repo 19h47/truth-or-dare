@@ -17,12 +17,14 @@ export default [
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'Aurions-nous une chance de coucher ensemble si nous étions confinés tous les deux ?',
+		content:
+			'Aurions-nous une chance de coucher ensemble si nous étions confinés tous les deux ?',
 	},
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'As-tu envie de m’arracher mon masque afin de m’en rouler une ?',
+		content:
+			'As-tu envie de m’arracher mon masque afin de m’en rouler une ?',
 	},
 	{
 		title: 'Vérité',
@@ -49,7 +51,8 @@ export default [
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'Penses-tu que cela va durer avec la personne avec laquelle tu es actuellement ? ',
+		content:
+			'Penses-tu que cela va durer avec la personne avec laquelle tu es actuellement ? ',
 	},
 
 	{
@@ -61,7 +64,8 @@ export default [
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'Quelle est la première choses que tu feras<br>lorsque les mesures de confinement seront levées ?',
+		content:
+			'Quelle est la première choses que tu feras<br>lorsque les mesures de confinement seront levées ?',
 	},
 
 	{
@@ -82,12 +86,13 @@ export default [
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'Avec le confinement, as-tu augmenté ton activité masturbatoire ?',
+		content:
+			'Avec le confinement, as-tu augmenté ton activité masturbatoire ?',
 	},
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'As-tu plus quitté que tu n\'as été quitté.e ou l\'inverse ?',
+		content: "As-tu plus quitté que tu n'as été quitté.e ou l'inverse ?",
 	},
 	{
 		title: 'Vérité',
@@ -97,7 +102,8 @@ export default [
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'Quel est le prénom de la personne avec laquelle tu as fait ta première fois ?',
+		content:
+			'Quel est le prénom de la personne avec laquelle tu as fait ta première fois ?',
 	},
 
 	{
@@ -108,7 +114,8 @@ export default [
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'Quelle serait ta réaction si je te disais que j’étais amoureux.euse de toi ?',
+		content:
+			'Quelle serait ta réaction si je te disais que j’étais amoureux.euse de toi ?',
 	},
 	{
 		title: 'Vérité',
@@ -133,7 +140,8 @@ export default [
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'Quelle est la partie de ton corps dont tu es le ou la plus fier.ère ?',
+		content:
+			'Quelle est la partie de ton corps dont tu es le ou la plus fier.ère ?',
 	},
 	{
 		title: 'Vérité',
@@ -154,7 +162,8 @@ export default [
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Fais-moi, s’il te plaît, un top 5 de tes chansons favorites !',
+		content:
+			'Fais-moi, s’il te plaît, un top 5 de tes chansons favorites !',
 	},
 
 	{
@@ -202,7 +211,8 @@ export default [
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Utilise un moyen technologique actuel pour envoyer « Je t’aime »<br>à quelqu’un de ta famille (avec lequel tu ne couches pas) !',
+		content:
+			'Utilise un moyen technologique actuel pour envoyer « Je t’aime »<br>à quelqu’un de ta famille (avec lequel tu ne couches pas) !',
 	},
 
 	{
@@ -238,13 +248,15 @@ export default [
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Dans une story Instagram publique, dis-moi que tu m’aimes<br>(N’oublie pas de citer Le Bitch Club) !',
+		content:
+			'Dans une story Instagram publique, dis-moi que tu m’aimes<br>(N’oublie pas de citer Le Bitch Club) !',
 	},
 
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Si tu crois un jour que tu m\'aimes, n\'attends pas un jour, pas une semaine !',
+		content:
+			"Si tu crois un jour que tu m'aimes, n'attends pas un jour, pas une semaine !",
 	},
 	{
 		title: 'Action',
@@ -269,12 +281,14 @@ export default [
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Réalise un classement de des tes ex en partant de celui que<br>tu aimes le moins pour arriver à celui que tu détestes le plus !',
+		content:
+			'Réalise un classement de des tes ex en partant de celui que<br>tu aimes le moins pour arriver à celui que tu détestes le plus !',
 	},
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Enregistre-toi en train de me chanter une chanson de Balavoine !',
+		content:
+			'Enregistre-toi en train de me chanter une chanson de Balavoine !',
 	},
 	{
 		title: 'Action',
@@ -289,17 +303,20 @@ export default [
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Envoie « Je t’aime mais notre amour est impossible » à<br>la 18 ème personne de ton répertoire téléphonique !',
+		content:
+			'Envoie « Je t’aime mais notre amour est impossible » à<br>la 18 ème personne de ton répertoire téléphonique !',
 	},
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Annonce sur Facebook que tu es enceinte ou que tu vas être papa !',
+		content:
+			'Annonce sur Facebook que tu es enceinte ou que tu vas être papa !',
 	},
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Évoque plus grosse honte en statut Instagram<br>(identifie Le Bitch Club) !',
+		content:
+			'Évoque plus grosse honte en statut Instagram<br>(identifie Le Bitch Club) !',
 	},
 	{
 		title: 'Action',
@@ -309,7 +326,8 @@ export default [
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Embrasse ton ou tes coconfinés (sans prendre de risque pour ta santé) !',
+		content:
+			'Embrasse ton ou tes coconfinés (sans prendre de risque pour ta santé) !',
 	},
 	{
 		title: 'Action',
