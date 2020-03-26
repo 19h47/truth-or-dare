@@ -17,7 +17,9 @@
 						type="button"
 						class="button"
 						@click="showTask = !showTask; $store.dispatch('updateAction');"
-					>Truth or dare</button>
+						style="margin-right: 7.5px;"
+					>Truth or dare</button><!--
+					--><a class="button" href="http://lebitchclub.fr/" rel="noopener noreferrer" style="margin-left: 7.5px;" target="_blank">Le Bitch Club</a>
 				</div>
 				<div v-if="showTask" key="wish">
 					<task/>
@@ -91,7 +93,7 @@ export default {
 					// 		height="${window.innerHeight}">
 					// `;
 
-					link.download = 'send-a-wish.png';
+					link.download = 'truth-or-dare.png';
 					link.href = this.canvas;
 					link.click();
 				});
@@ -102,6 +104,11 @@ export default {
 </script>
 
 <style lang="scss">
+
+	* {
+		box-sizing: border-box;
+	}
+
 	html {
 		height: 100%;
 		width: 100%;
@@ -164,7 +171,7 @@ export default {
 			}
 		}
 
-		background: black;
+		background-color: black;
 		color: white;
 
 		display: flex;
@@ -180,8 +187,10 @@ export default {
 	}
 
 	.button {
-		display: inline-block;
-		height: 45px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		text-decoration: none;
 		border: {
 			radius: 30px;
 			color: white;
@@ -189,23 +198,29 @@ export default {
 			width: 1px;
 		}
 		padding: {
+			top: 15px;
 			right: 15px;
+			bottom: 15px;
 			left: 15px;
 		}
 		color: white;
-		background: transparent;
+		background-color: transparent;
 		text-transform: uppercase;
 		letter-spacing: .1em;
 		cursor: pointer;
 		outline: none;
 		font: {
 			weight: 500;
+			size: 13px;
 		}
+		line-height: normal;
 
-		transition: .15s ease-in-out;
+		transition:
+			background-color .15s ease-in-out,
+			color .15s ease-in-out;
 
 		&:hover {
-			background: white;
+			background-color: white;
 			color: black;
 		}
 	}

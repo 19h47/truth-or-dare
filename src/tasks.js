@@ -74,7 +74,7 @@ export default [
 		value: 0,
 		content: 'Avec ou sans lumière ?',
 	},
-	{		
+	{
 		title: 'Vérité',
 		value: 0,
 		content: 'Quel est ton plat de la honte ?',
@@ -125,7 +125,7 @@ export default [
 		value: 0,
 		content: 'Quelle est ta dernière requête Google ?',
 	},
-	{	
+	{
 		title: 'Vérité (qui dérange)',
 		value: 0,
 		content: 'Utilises-tu souvent la navigation privée ?',

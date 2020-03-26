@@ -1,4 +1,4 @@
-window.URL = process.env.NODE_ENV === 'production' ? 'https://truth-or-dare.19h47.fr/' : 'http://localhost:9000/';
+window.URL = process.env.NODE_ENV === 'production' ? 'https://truth-or-dare.lebitclub.fr/' : 'http://localhost:3000/';
 
 require('scripts/app');
 
