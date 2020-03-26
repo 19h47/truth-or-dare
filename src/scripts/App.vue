@@ -1,7 +1,8 @@
 <template>
 	<div id="app">
-		<header v-if="showTask">
+		<header class="header" v-if="showTask">
 			<value></value>
+			<p>Pic or it didn't happen</p>
 		</header>
 		<div class="container" ref="canvas">
 			<transition name="fade" mode="out-in" appear>
@@ -230,6 +231,7 @@ export default {
 		top: 0;
 		right: 0;
 		left: 0;
+		color: white;
 
 		margin: {
 			top: 30px;
@@ -239,6 +241,7 @@ export default {
 
 		display: flex;
 		align-items: center;
+		justify-content: space-between;
 	}
 
 	footer {
@@ -252,6 +255,7 @@ export default {
 			right: 30px;
 			left: 30px;
 		}
+
 
 		@media ( min-width: 768px ) {
 			display: flex;
