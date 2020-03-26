@@ -74,6 +74,11 @@ export default [
 		value: 0,
 		content: 'Avec ou sans lumière ?',
 	},
+	{		
+		title: 'Vérité',
+		value: 0,
+		content: 'Quel est ton plat de la honte ?',
+	},
 	{
 		title: 'Vérité',
 		value: 0,
@@ -82,7 +87,7 @@ export default [
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'As-tu plus quitté que tu n\'as été quitté.e ?',
+		content: 'As-tu plus quitté que tu n\'as été quitté.e ou l\'inverse ?',
 	},
 	{
 		title: 'Vérité',
@@ -108,7 +113,7 @@ export default [
 	{
 		title: 'Vérité',
 		value: 0,
-		content: 'As-tu déjà regardé son mon portable ?<br>(Je ne te le conseille pas)',
+		content: 'Est-ce que tu te trouves physiquement mieux que moi ?',
 	},
 	{
 		title: 'Vérité',
@@ -119,6 +124,11 @@ export default [
 		title: 'Vérité (qui dérange)',
 		value: 0,
 		content: 'Quelle est ta dernière requête Google ?',
+	},
+	{	
+		title: 'Vérité (qui dérange)',
+		value: 0,
+		content: 'Utilises-tu souvent la navigation privée ?',
 	},
 	{
 		title: 'Vérité',
@@ -254,6 +264,11 @@ export default [
 	{
 		title: 'Action',
 		value: 1,
+		content: 'Ne mange pas de viande pendant une semaine',
+	},
+	{
+		title: 'Action',
+		value: 1,
 		content: 'Réalise un classement de des tes ex en partant de celui que<br>tu aimes le moins pour arriver à celui que tu détestes le plus',
 	},
 	{
@@ -264,7 +279,7 @@ export default [
 	{
 		title: 'Action',
 		value: 1,
-		content: 'Prends un selfie, envoie-le moi. Tu me manques',
+		content: 'Prends un selfie et envoie-le moi. Tu me manques',
 	},
 	{
 		title: 'Action',
