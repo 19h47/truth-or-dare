@@ -17,8 +17,7 @@ jobs:
     - name: Build Project
       run: |
         yarn install
-        yarn build
-        git reset --hard
+        yarn build --if-present
         
     - name: List output files
       run: ls
