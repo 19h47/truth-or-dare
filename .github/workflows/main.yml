@@ -28,5 +28,5 @@ jobs:
         ftp-server: access770181879.webspace-data.io
         ftp-username: u96253065
         ftp-password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: dist
-        git-ftp-args: --remote-root /truth-or-dare --dry-run
+        local-dir: ./dist/
+        git-ftp-args: --remote-root sftp://u96253065@access770181879.webspace-data.io/truth-or-dare
