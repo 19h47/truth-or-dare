@@ -76,9 +76,11 @@
 </template>
 
 <script>
-const task = import(/* webpackChunkName: "task" */'./components/Task.vue');
-const value = import(/* webpackChunkName: "value" */'./components/Value.vue');
-const url = import(/* webpackChunkName: "url" */'./components/Url.vue');
+const task = () =>
+	import(/* webpackChunkName: "task" */ './components/Task.vue').then(c => c.default);
+const value = () =>
+	import(/* webpackChunkName: "value" */ './components/Value.vue').then(c => c.default);
+const url = () => import(/* webpackChunkName: "url" */ './components/Url.vue').then(c => c.default);
 
 import html2canvas from 'html2canvas';
 
