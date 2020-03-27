@@ -28,4 +28,4 @@ jobs:
         ftp-server: access770181879.webspace-data.io
         ftp-username: u96253065
         ftp-password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: dist
+        local-dir: truth-or-dare
