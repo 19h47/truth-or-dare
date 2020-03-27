@@ -8,8 +8,8 @@
 <script>
 import { mapState } from 'vuex';
 
-import flexedBiceps from '@/img/png/flexed-biceps.png';
-import indexPointingUp from '@/img/png/index-pointing-up.png';
+import flexedBiceps from '@/assets/img/png/flexed-biceps.png';
+import indexPointingUp from '@/assets/img/png/index-pointing-up.png';
 
 export default {
 	name: 'Value',

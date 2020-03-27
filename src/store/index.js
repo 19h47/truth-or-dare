@@ -1,7 +1,7 @@
 import Vuex from 'vuex';
 import Vue from 'vue';
 
-import tasks from '@/tasks';
+import tasks from '@/inc/tasks';
 
 Vue.use(Vuex);
 

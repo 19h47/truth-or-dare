@@ -84,9 +84,9 @@
 </template>
 
 <script>
-import task from 'Components/Task.vue';
-import value from 'Components/Value.vue';
-import url from 'Components/Url.vue';
+import task from './components/Task.vue';
+import value from './components/Value.vue';
+import url from './components/Url.vue';
 
 import html2canvas from 'html2canvas';
 
