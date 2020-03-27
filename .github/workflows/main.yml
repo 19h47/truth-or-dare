@@ -29,4 +29,4 @@ jobs:
         ftp-username: u96253065
         ftp-password: ${{ secrets.FTP_PASSWORD }}
         local-dir: dist
-        git-ftp-args: --remote-root truth-or-dare
+        git-ftp-args: --remote-root /truth-or-dare --dry-run
