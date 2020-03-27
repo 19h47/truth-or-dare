@@ -19,7 +19,7 @@
 						class="button"
 						@click="
 							showTask = !showTask;
-							$store.dispatch('SET_ACTIONS');
+							$store.dispatch('updateAction');
 						"
 						style="margin-right: 7.5px;"
 					>
@@ -45,7 +45,7 @@
 				<div class="Footer__column Footer__column--left">
 					<button
 						class="button"
-						@click="$store.dispatch('SET_ACTIONS')"
+						@click="$store.dispatch('updateAction')"
 						type="button"
 						style="margin-right: 7.5px;"
 					>
