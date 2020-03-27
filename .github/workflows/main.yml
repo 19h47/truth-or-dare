@@ -18,6 +18,7 @@ jobs:
       run: |
         yarn install
         yarn build
+        git reset --hard
         
     - name: List output files
       run: ls
@@ -28,4 +29,4 @@ jobs:
         ftp-server: access770181879.webspace-data.io
         ftp-username: u96253065
         ftp-password: ${{ secrets.FTP_PASSWORD }}
-        git-ftp-args: --remote-root sftp://u96253065@access770181879.webspace-data.io/truth-or-dare --dry-run
+        git-ftp-args: --remote-root truth-or-dare --dry-run
