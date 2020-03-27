@@ -10,6 +10,7 @@
 	"author": "Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)",
 	"license": "ISC",
 	"dependencies": {
+		"@upstatement/prettier-config": "19h47/prettier-config",
 		"gsap": "3.2.6",
 		"html2canvas": "^1.0.0-rc.5",
 		"vue": "^2.6.10",

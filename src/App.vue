@@ -10,8 +10,7 @@
 					<h1 style="line-height: 30px;">
 						Truth or dare<br />
 						<span style="font-size: 18px; font-weight: 300;"
-							>by <strong>ines a</strong> &
-							<strong>19h47</strong></span
+							>by <strong>ines a</strong> & <strong>19h47</strong></span
 						>
 					</h1>
 					<button
@@ -63,19 +62,12 @@
 					<url></url>
 				</div>
 
-				<div
-					class="Footer__column Footer__column--right"
-					style="color: white;"
-				>
+				<div class="Footer__column Footer__column--right" style="color: white;">
 					<small
 						>By
-						<a href="http://inesa.fr" target="_blank"
-							><strong>ines a</strong></a
-						>
+						<a href="http://inesa.fr" target="_blank"><strong>ines a</strong></a>
 						&
-						<a href="https://19h47.fr" target="_blank"
-							><strong>19h47</strong></a
-						></small
+						<a href="https://19h47.fr" target="_blank"><strong>19h47</strong></a></small
 					>
 				</div>
 			</footer>
@@ -84,9 +76,9 @@
 </template>
 
 <script>
-import task from './components/Task.vue';
-import value from './components/Value.vue';
-import url from './components/Url.vue';
+const task = import(/* webpackChunkName: "task" */'./components/Task.vue');
+const value = import(/* webpackChunkName: "value" */'./components/Value.vue');
+const url = import(/* webpackChunkName: "url" */'./components/Url.vue');
 
 import html2canvas from 'html2canvas';
 
