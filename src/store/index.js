@@ -5,8 +5,6 @@ import tasks from '@/inc/tasks';
 
 Vue.use(Vuex);
 
-// console.log(wishes);
-
 export default new Vuex.Store({
 	state: {
 		version: '1.0.0',
@@ -31,6 +29,6 @@ export default new Vuex.Store({
 	getters: {
 		index: state => state.index,
 		value: state => state.value,
-		wish: state => state.task,
+		task: state => state.task,
 	},
 });
