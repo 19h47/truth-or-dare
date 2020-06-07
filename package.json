@@ -10,7 +10,6 @@
 	"author": "Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)",
 	"license": "ISC",
 	"dependencies": {
-		"@upstatement/prettier-config": "19h47/prettier-config",
 		"gsap": "3.2.6",
 		"html2canvas": "^1.0.0-rc.5",
 		"vue": "^2.6.10",
@@ -22,6 +21,7 @@
 		"url": "https://github.com/truth-or-dare/pack.git"
 	},
 	"devDependencies": {
+		"@19h47/prettier-config": "^1.0.0",
 		"@vue/cli-plugin-babel": "^4.2.3",
 		"@vue/cli-plugin-eslint": "^4.2.3",
 		"@vue/cli-plugin-vuex": "^4.2.3",
