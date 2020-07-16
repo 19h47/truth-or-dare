@@ -1,6 +1,6 @@
 <template>
 	<transition name="fade" mode="out-in" appear>
-		<img v-if="$store.getters['value']" :src="flexedBiceps" />
+		<img v-if="value" :src="flexedBiceps" />
 		<img v-else :src="indexPointingUp" />
 	</transition>
 </template>
