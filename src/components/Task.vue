@@ -3,7 +3,7 @@
 		<div
 			v-if="task()"
 			class="h3"
-			style="font-weight: 500; line-height: 30px;"
+			style="font-weight: 500; line-height: 30px"
 			v-html="task()"
 			:key="task()"
 		></div>
