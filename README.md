@@ -43,7 +43,7 @@ pnpm exec playwright install
 pnpm test
 ```
 
-Pushing to `master` builds, tests and deploys the site to GitHub Pages.
+Pushing to `main` builds, tests and deploys the site to GitHub Pages.
 
 ## Acknowledgments
 
