@@ -1,197 +1,240 @@
 <template>
-	<div id="app">
-		<header class="header" v-if="showTask">
-			<value></value>
-			<p>Pic or it didn't happen</p>
-		</header>
-		<div class="container" ref="canvas">
-			<transition name="fade" mode="out-in" appear>
-				<div v-if="!showTask" key="button">
-					<h1 style="line-height: 30px">
-						Truth or dare<br />
-						<span style="font-size: 18px; font-weight: 300"
-							>by <strong>ines a</strong> & <strong>19h47</strong></span
-						>
-					</h1>
-					<button
-						type="button"
-						class="button"
-						@click="
-							showTask = !showTask;
-							$store.dispatch('updateAction');
-						"
-						style="margin-right: 7.5px"
-					>
-						Truth or dare</button
-					><!--
-					--><a
-						class="button"
-						href="http://lebitchclub.fr/"
-						rel="noopener noreferrer"
-						style="margin-left: 7.5px"
-						target="_blank"
-						>Le Bitch Club</a
-					>
-				</div>
-				<div v-if="showTask" key="wish">
-					<task />
-				</div>
-			</transition>
-		</div>
+	<header v-if="showTask">
+		<Value />
+		<p>{{ t.tagline }}</p>
+	</header>
+	<div class="container" ref="canvas">
+		<transition name="fade" mode="out-in" appear @after-enter="afterEnter">
+			<div v-if="!showTask" key="button">
+				<h1>{{ t.title }}</h1>
+				<p class="byline">
+					{{ t.by }}&nbsp;<strong>19h47</strong>,
+					<time datetime="2019-01">{{ createdAt }}</time>
+				</p>
 
-		<transition name="fade">
-			<footer v-if="showTask">
-				<div class="Footer__column Footer__column--left">
-					<button
-						class="button"
-						@click="$store.dispatch('updateAction')"
-						type="button"
-						style="margin-right: 7.5px"
-					>
-						Reload
-					</button>
-					<button
-						class="button"
-						@click="share($refs.canvas)"
-						type="button"
-						style="margin: 0 15px 0 7.5px"
-					>
-						Save
-					</button>
-
-					<url></url>
-				</div>
-
-				<div class="Footer__column Footer__column--right" style="color: white">
-					<small
-						>By
-						<a href="http://inesa.fr" target="_blank"><strong>ines a</strong></a>
-						&
-						<a href="https://19h47.fr" target="_blank"><strong>19h47</strong></a></small
-					>
-				</div>
-			</footer>
+				<button type="button" class="button primary" @click="start">{{ t.title }}</button>
+				<Preferences />
+			</div>
+			<div v-else key="wish">
+				<Task @ready="prepareShare" />
+			</div>
 		</transition>
 	</div>
+	<p class="visually-hidden" aria-live="polite">{{ showTask ? store.text : '' }}</p>
+
+	<transition name="fade">
+		<footer v-if="showTask">
+			<div class="actions">
+				<button class="button primary" @click="store.next()" type="button">
+					{{ t.reload }}
+				</button>
+				<button class="button" @click="share" type="button">
+					{{ canShare ? t.share : t.save }}
+				</button>
+			</div>
+
+			<Preferences>
+				<span
+					>{{ t.by }}&nbsp;<a href="https://19h47.fr" target="_blank"
+						><strong>19h47</strong></a
+					></span
+				>
+			</Preferences>
+		</footer>
+	</transition>
 </template>
 
-<script>
-const task = () =>
-	import(/* webpackChunkName: "task" */ './components/Task.vue').then(c => c.default);
-const value = () =>
-	import(/* webpackChunkName: "value" */ './components/Value.vue').then(c => c.default);
-const url = () => import(/* webpackChunkName: "url" */ './components/Url.vue').then(c => c.default);
+<script setup lang="ts">
+import { defineAsyncComponent, ref, useTemplateRef } from 'vue';
+import { domToBlob } from 'modern-screenshot';
 
-import html2canvas from 'html2canvas';
+import { colorScheme } from '@/color-scheme';
+import Preferences from '@/components/Preferences.vue';
+import { locale, t } from '@/i18n';
+import { useTaskStore } from '@/stores/task';
 
-export default {
-	name: 'App',
-	components: { task, value, url },
-	data() {
-		return {
-			showTask: false,
-			canvas: null,
-		};
-	},
-	methods: {
-		share(element) {
-			html2canvas(element).then(canvas => {
-				const link = document.createElement('a');
-				this.canvas = canvas.toDataURL('image/png');
+const Task = defineAsyncComponent(() => import('./components/Task.vue'));
+const Value = defineAsyncComponent(() => import('./components/Value.vue'));
 
-				// const tab = window.open();
+const filename = 'truth-or-dare.png';
+const url = new URL('./', window.location.href).href;
+const createdAt = new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric' }).format(
+	new Date(2019, 0),
+);
+const canShare =
+	navigator.canShare?.({ files: [new File([], filename, { type: 'image/png' })] }) ?? false;
 
-				// tab.document.body.style.margin = '0px';
-				// tab.document.body.style.padding = '0px';
+const store = useTaskStore();
+const showTask = ref(false);
+const shareTarget = useTemplateRef('canvas');
 
-				// tab.document.body.innerHTML = `
-				// 	<img
-				// 		src="${this.canvas}"
-				// 		width="${window.innerWidth}"
-				// 		height="${window.innerHeight}">
-				// `;
+let preparedImage: { key: string; blob: Promise<Blob> } | undefined;
+let taskEntered = false;
 
-				link.download = 'truth-or-dare.png';
-				link.href = this.canvas;
-				link.click();
-			});
-		},
-	},
-};
+function start() {
+	showTask.value = true;
+}
+
+function capture(element: HTMLElement) {
+	const key = [
+		element.textContent,
+		colorScheme.value,
+		window.innerWidth,
+		window.innerHeight,
+		window.devicePixelRatio,
+	].join();
+
+	if (preparedImage?.key !== key) {
+		const { backgroundColor } = getComputedStyle(document.body);
+		const blob = domToBlob(element, { scale: window.devicePixelRatio, backgroundColor });
+
+		blob.catch(() => (preparedImage = undefined));
+		preparedImage = { key, blob };
+	}
+
+	return preparedImage.blob;
+}
+
+function prepareShare() {
+	if (taskEntered && shareTarget.value) {
+		capture(shareTarget.value);
+	}
+}
+
+function afterEnter() {
+	taskEntered = showTask.value;
+	prepareShare();
+}
+
+function download(blob: Blob) {
+	const href = URL.createObjectURL(blob);
+	const link = document.createElement('a');
+
+	link.download = filename;
+	link.href = href;
+	link.click();
+
+	setTimeout(() => URL.revokeObjectURL(href));
+}
+
+async function share() {
+	if (!shareTarget.value) {
+		return;
+	}
+
+	const blob = await capture(shareTarget.value);
+
+	if (!canShare) {
+		download(blob);
+		return;
+	}
+
+	const file = new File([blob], filename, { type: blob.type });
+
+	try {
+		await navigator.share({ files: [file], title: t.title, text: store.text, url });
+	} catch (error) {
+		if (error instanceof DOMException && error.name === 'AbortError') {
+			return;
+		}
+
+		download(blob);
+	}
+}
 </script>
 
-<style lang="scss">
+<style>
+:root {
+	color-scheme: light dark;
+
+	--color-background: light-dark(white, black);
+	--color-foreground: light-dark(black, white);
+
+	--space-xs: 0.25rem;
+	--space-s: 0.5rem;
+	--space-m: 1rem;
+	--space-l: 2rem;
+	--gutter: var(--space-m);
+
+	@media (min-width: 48rem) {
+		--gutter: var(--space-l);
+	}
+}
+
 * {
 	box-sizing: border-box;
 }
 
-html {
-	height: 100%;
-	width: 100%;
-}
 body {
 	overflow: hidden;
 	margin: 0;
 
-	height: 100%;
-	width: 100%;
+	height: 100dvh;
 
 	position: relative;
-	font: {
-		family: 'Work Sans', sans-serif;
-		weight: 300;
-		size: 18px;
-	}
-	line-height: 22px;
+	font-family: 'Work Sans Variable', sans-serif;
+	font-weight: 300;
+	line-height: 1.5;
+	background-color: var(--color-background);
+	color: var(--color-foreground);
+}
+
+h1,
+p {
+	margin: 0;
+}
+
+sup {
+	line-height: 0;
 }
 
 a {
-	color: white;
+	color: inherit;
 }
 
 #app {
 	height: 100%;
-	width: 100%;
 }
 
-h1,
-.h1 {
-	font: {
-		size: 43px;
-		weight: 500;
-	}
-	line-height: 44px;
+h1 {
+	font-size: 2.6875rem;
+	font-weight: 500;
+	line-height: 1.1;
 }
 
-h2,
-.h2 {
-	font-size: 32px;
-	line-height: 44px;
+.task {
+	font-size: 1.5rem;
+	font-weight: 500;
+	line-height: 1.3;
 }
 
-h3,
-.h3 {
-	font-size: 24px;
-	line-height: 44px;
+.actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--space-s) var(--space-m);
+}
+
+.byline {
+	margin-block-end: var(--space-l);
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
 }
 
 .container {
 	height: 100%;
 
-	padding: {
-		right: 15px;
-		left: 15px;
-	}
-
-	@media (min-width: 768px) {
-		padding: {
-			right: 30px;
-			left: 30px;
-		}
-	}
-
-	background-color: black;
-	color: white;
+	padding-inline: var(--gutter);
 
 	display: flex;
 	align-items: center;
@@ -202,7 +245,8 @@ h3,
 .fade-leave-active {
 	transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter-from,
+.fade-leave-to {
 	opacity: 0;
 }
 
@@ -211,50 +255,69 @@ h3,
 	align-items: center;
 	justify-content: center;
 	text-decoration: none;
-	border: {
-		radius: 30px;
-		color: white;
-		style: solid;
-		width: 1px;
-	}
-	padding: {
-		top: 15px;
-		right: 15px;
-		bottom: 15px;
-		left: 15px;
-	}
-	color: white;
+	border: 1px solid;
+	border-radius: var(--space-l);
+	padding: calc(var(--space-m) - 1px);
+	color: inherit;
 	background-color: transparent;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	cursor: pointer;
-	outline: none;
-	font: {
-		weight: 500;
-		size: 13px;
-	}
-	line-height: normal;
+	font: inherit;
+	font-weight: 500;
+	font-size: 0.8125rem;
+	line-height: 1.2;
 
-	transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+	transition:
+		background-color 0.15s ease-in-out,
+		color 0.15s ease-in-out;
 
 	&:hover {
-		background-color: white;
-		color: black;
+		background-color: var(--color-foreground);
+		color: var(--color-background);
 	}
+
+	&:focus-visible {
+		outline: 2px solid var(--color-foreground);
+		outline-offset: var(--space-xs);
+	}
+
+	&.primary {
+		background-color: var(--color-foreground);
+		color: var(--color-background);
+
+		&:hover {
+			background-color: transparent;
+			color: inherit;
+		}
+	}
+}
+
+.preferences {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--space-s) var(--space-m);
+	font-size: 0.8125rem;
+
+	.button + & {
+		margin-block-start: var(--space-m);
+	}
+}
+
+.link {
+	padding: 0;
+	border: 0;
+	background-color: transparent;
+	color: inherit;
+	font: inherit;
+	text-decoration: underline;
+	cursor: pointer;
 }
 
 header {
 	position: absolute;
-	top: 0;
-	right: 0;
-	left: 0;
-	color: white;
-
-	margin: {
-		top: 30px;
-		right: 30px;
-		left: 30px;
-	}
+	inset: var(--gutter) var(--gutter) auto;
 
 	display: flex;
 	align-items: center;
@@ -263,54 +326,16 @@ header {
 
 footer {
 	position: absolute;
-	bottom: 0;
-	right: 0;
-	left: 0;
+	inset: auto var(--gutter) var(--gutter);
 
-	margin: {
-		bottom: 30px;
-		right: 30px;
-		left: 30px;
-	}
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-m);
 
-	@media (min-width: 768px) {
-		display: flex;
+	@media (min-width: 48rem) {
+		flex-direction: row;
 		align-items: center;
-	}
-
-	svg {
-		height: 15px;
-		width: 15px;
-
-		fill: white;
-	}
-}
-
-.Footer {
-	&__column {
-		width: 100%;
-
-		@media (min-width: 768px) {
-			width: 50%;
-		}
-
-		&--right {
-			margin-top: 15px;
-			margin-left: 15px;
-
-			@media (min-width: 768px) {
-				margin-top: 0;
-				margin-left: 0;
-				text-align: right;
-			}
-		}
-
-		&--left {
-			display: flex;
-			align-items: center;
-			@media (min-width: 768px) {
-			}
-		}
+		justify-content: space-between;
 	}
 }
 </style>

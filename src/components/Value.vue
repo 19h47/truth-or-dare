@@ -1,51 +1,43 @@
 <template>
 	<transition name="fade" mode="out-in" appear>
-		<img v-if="value" :src="flexedBiceps" />
-		<img v-else :src="indexPointingUp" />
+		<img v-if="store.task.type === 'dare'" :src="flexedBiceps" :alt="t.dare" />
+		<img v-else :src="indexPointingUp" :alt="t.truth" />
 	</transition>
 </template>
 
-<script>
-import { mapState } from 'vuex';
+<script setup lang="ts">
+import { watch } from 'vue';
 
 import flexedBiceps from '@/assets/img/png/flexed-biceps.png';
 import indexPointingUp from '@/assets/img/png/index-pointing-up.png';
+import { t } from '@/i18n';
+import { useTaskStore } from '@/stores/task';
 
-export default {
-	name: 'Value',
-	data() {
-		return {
-			flexedBiceps,
-			indexPointingUp,
-		};
-	},
-	computed: {
-		...mapState(['value']),
-	},
-	watch: {
-		value(val = false) {
-			const link = document.querySelector("link[rel*='icon']");
+const store = useTaskStore();
 
-			link.href = indexPointingUp;
+watch(
+	() => store.task.type,
+	type => {
+		const link = document.querySelector<HTMLLinkElement>("link[rel*='icon']");
 
-			if (val) {
-				link.href = flexedBiceps;
-			}
-		},
+		if (link) {
+			link.href = type === 'dare' ? flexedBiceps : indexPointingUp;
+		}
 	},
-};
+);
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 img {
-	width: 30px;
-	height: 30px;
+	width: var(--space-l);
+	height: var(--space-l);
 }
 .fade-enter-active,
 .fade-leave-active {
 	transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter-from,
+.fade-leave-to {
 	opacity: 0;
 }
 </style>

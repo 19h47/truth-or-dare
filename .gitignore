@@ -2,28 +2,18 @@
 node_modules
 dist
 
-# local env files
+# Local env files
 .env.local
 .env.*.local
 
 # Log files
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+pnpm-debug.log*
+
+# Test results
+test-results
+playwright-report
 
 # Editor directories and files
 .idea
 .vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-
-.gitignore
-*/.gitignore
-*/.gitkeep
-.git-ftp-ignore
-.git-ftp-include
-.gitlab-ci.yml
